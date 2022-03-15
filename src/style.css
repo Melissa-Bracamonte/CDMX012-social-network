@@ -27,7 +27,7 @@ header {
   margin-top: 20px;
 }
 
-#globalContainer {
+#newGlobalDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;

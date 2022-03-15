@@ -1,7 +1,12 @@
 // Import the functions from the SDKs
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+import { getDatabase, set, ref } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
+import {
+  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { home } from './components/Signup';
+// import { onNavigate } from './lib/main.js';
+// import { signUp, home } from './components/signUp.js';
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -30,12 +35,13 @@ document.getElementById('buttonSignup').addEventListener('click', () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        set(ref(database, 'users/' + user.uid), {
-          username: username,
-          email: email,
+        set(ref(database, `users/${user.uid}`), {
+          username,
+          email,
         });
         alert('user created!');
-        document.getElementById('globalContainer').innerHTML = 'aquí iría el homepage';
+        // document.getElementById('globalContainer').innerHTML = 'aquí iría el homepage';
+        // onNavigate('/Home');
       })
       .catch(() => {
         // const errorCode = error.code;
@@ -62,6 +68,7 @@ buttonGoogle.addEventListener('click', () => {
     const token = credential.accessToken;
     const user = result.user;
     alert('User created');
+     home();
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
