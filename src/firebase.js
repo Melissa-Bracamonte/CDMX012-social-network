@@ -46,29 +46,34 @@ export const createUser = (email, password, username) => {
 // Auth with email
 
 // Sign up with google
-// const provider = new GoogleAuthProvider();
-// provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-// provider.addScope('profile');
-// provider.addScope('email');
+const provider = new GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+provider.addScope('profile');
+provider.addScope('email');
 
-// const buttonGoogle = document.getElementById('buttonGoogle');
-// buttonGoogle.addEventListener('click', () => {
-//   signInWithPopup(auth, provider).then((result) => {
-//     // Get Google Access Token, then we use it to access the Google API.
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     const token = credential.accessToken;
-//     const user = result.user;
-//     alert('User created');
-//   }).catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // The email of the user's account used.
-//     const email = error.email;
-//     // The AuthCredential type that was used.
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//     alert(errorMessage);
-//   });
-// });
+export const createUserWithGoogle = async () => {
+  const auth = getAuth();
+  let userCreateGoogle;
+  try {
+    const result = await signInWithPopup(auth, provider);
+    // Get Google Access Token, then we use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    userCreateGoogle = true;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    alert(errorMessage);
+    userCreateGoogle = false;
+  }
+  // await signInWithPopup;
+  return userCreateGoogle;
+};
 
 // const provider2 = new TwitterAuthProvider();
 

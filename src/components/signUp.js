@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { createUser } from '../firebase.js';
+import { createUser, createUserWithGoogle } from '../firebase.js';
 import { validateInformation } from './helper.js';
 
 export const signup = () => {
@@ -108,18 +108,22 @@ export const signup = () => {
     const informationValidated = validateInformation(email, password);
     if (informationValidated.status === true) {
       const userCreated = createUser(email, password, username);
-     if (userCreated) onNavigate('/home');
+      if (userCreated) onNavigate('/home');
       onNavigate('/home');
     } else {
       document.getElementById('errorMessage').innerText = informationValidated.message;
     }
-
-    // if (email === '' || password === '' || username === '') {
-    //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
-    // } else {
-    //   const userCreated = createUser(email, password, username);
-    //   if (userCreated) onNavigate('/home');
-    // }
   });
+
+  buttonGoogle.addEventListener('click', () => {
+    const functionGoogle = createUserWithGoogle().then((result) => {
+      if (result) {
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'Ya existe esta cuenta';
+      }
+    });
+  });
+
   return globalSignupDiv;
 };
