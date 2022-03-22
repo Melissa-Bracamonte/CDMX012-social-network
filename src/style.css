@@ -271,11 +271,11 @@ p {
   .pinkContainer{
     background-color:#BD72BE ;
     display: flex;
-    height: 750px;
+    height: 740px;
     width: 50%;
     flex-direction: column;
     justify-content: center;
-    border-radius:0 30% 30% 0;
+    /* border-radius:0 0 10% 0;  */
     }
 
   .singUpFree{
