@@ -80,6 +80,7 @@ export const loginUserWithEmail = async () => {
       last_login: dt,
     });
     loginWithEmail = true;
+    // console.log(user);
   } catch (error) {
     loginWithEmail = false;
   }
