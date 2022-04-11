@@ -51,9 +51,9 @@ export const dislike = async (postId) => {
   }
 };
 
-export const likeCounter = () => getDoc(collection(db, 'Posts'), {
-  likes: [],
-});
+// export const likeCounter = () => getDoc(collection(db, 'Posts'), {
+//   likes: [],
+// });
 
 // export async function getPostInOrder() {
 //   try {
