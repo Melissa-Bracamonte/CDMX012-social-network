@@ -27,7 +27,7 @@ Las usuarias de este proyecto son mujeres que tienen como principal necesidad po
 
 ## 3. Comentarios básicos
 
-Confome empezamos construir nuestros prototipos de la red social siempre estuvimos trabajando de la mano de las necesidades y sugerencias de usuarias, de nuestras compañeras y coaches. Los colores, la  organización y la implementación de loguearse con Google y Twitter. 
+Conforme empezamos a construir nuestros prototipos de la red social siempre estuvimos trabajando de la mano de las necesidades y sugerencias de usuarias, de nuestras compañeras y coaches. Los colores, la  organización y la implementación de loguearse con Google y Twitter. 
 Intentamos siempre basarnos en el prototipo de alta fidelidad, cada avance de historia de usuaria realizamos test de usabilidad para tener una página intuitiva.
 
 
